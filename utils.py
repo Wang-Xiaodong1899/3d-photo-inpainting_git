@@ -986,7 +986,7 @@ def get_MiDaS_samples_MC(image_folder, depth_folder, config, specific=None, aft_
     # root = '/f_ndata_/G/dataset/RealEstate10K/sorted_1k'
     # filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_1k_sorted_new.jsonl')
     root = '/scratch/f_ndata/G/dataset/MannequinChallenge/testimages_135'
-    filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_200_random.jsonl')
+    filename = os.path.join(data_dir, 'dataset/MannequinChallenge/meta_200_random.jsonl')
     with open(filename, 'rb') as f:
         datas = [e for e in json_lines.reader(f)]
 
