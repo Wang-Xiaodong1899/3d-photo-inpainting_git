@@ -1046,7 +1046,7 @@ def get_MiDaS_samples_MC(image_folder, depth_folder, config, specific=None, aft_
         samples.append({})
         sdict = samples[-1]
 
-        depth_folder = os.path.join(data_dir,'dataset/RealEstate10K/','sorted_depth')
+        depth_folder = os.path.join(data_dir,'dataset/MannequinChallenge/','testimages_135_depth')
         os.makedirs(depth_folder, exist_ok=True)
         image_folder = root
 
