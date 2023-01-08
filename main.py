@@ -32,7 +32,7 @@ if config['offscreen_rendering'] is True:
 os.makedirs(config['mesh_folder'], exist_ok=True)
 os.makedirs(config['video_folder'], exist_ok=True)
 os.makedirs(config['depth_folder'], exist_ok=True)
-sample_list = get_MiDaS_samples_Real(config['src_folder'], config['depth_folder'], config, config['specific'])
+sample_list = get_MiDaS_samples_MC(config['src_folder'], config['depth_folder'], config, config['specific'])
 normal_canvas, all_canvas = None, None
 
 if isinstance(config["gpu_ids"], int) and (config["gpu_ids"] >= 0):

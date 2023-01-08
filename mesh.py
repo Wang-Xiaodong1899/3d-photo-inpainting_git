@@ -2293,7 +2293,7 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
         #TODO add save image
         img = stereos[0]
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        cv2.imwrite(os.path.join('/scratch/f_ndata/G/i2v/3Dphoto/','tgt_5th', video_basename+'.png'), img)
+        cv2.imwrite(os.path.join('/scratch/f_ndata/G/i2v/3Dphoto/eval_MC','tgt_5th', video_basename+'.png'), img)
 
 
 
