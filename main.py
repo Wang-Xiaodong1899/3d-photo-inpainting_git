@@ -43,7 +43,7 @@ else:
 print(f"running on device {device}")
 
 for idx in tqdm(range(len(sample_list))):
-    if idx<940:
+    if idx<939:
         continue
     else:
         try:
