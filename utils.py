@@ -899,7 +899,7 @@ def get_MiDaS_samples_Real(image_folder, depth_folder, config, specific=None, af
         datas = [e for e in json_lines.reader(f)]
 
     target_dir = 'i2v/3Dphoto/' #TODO
-    pred_pth = os.path.join(data_dir, target_dir, 'tgt_5th') #TODO
+    pred_pth = os.path.join(data_dir, target_dir, 'tgt_10th') #TODO
     os.makedirs(pred_pth, exist_ok=True)
 
     lines = []
@@ -942,7 +942,7 @@ def get_MiDaS_samples_Real(image_folder, depth_folder, config, specific=None, af
         #TODO: add ins, src_pose, tgt_pose
         ins = inss[id]
         src_pose = src_poss[id]
-        tgt_pose = tgt_pose_1s[id] #TODO
+        tgt_pose = tgt_pose_2s[id] #TODO
 
         tgt_pose = np.vstack((tgt_pose, np.zeros((1, 4)))).astype(np.float32)
         tgt_pose[3, 3] = 1
