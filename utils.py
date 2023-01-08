@@ -890,16 +890,16 @@ def get_MiDaS_samples(image_folder, depth_folder, config, specific=None, aft_cer
 
 def get_MiDaS_samples_Real(image_folder, depth_folder, config, specific=None, aft_certain=None):
     # lines = [os.path.splitext(os.path.basename(xx))[0] for xx in glob.glob(os.path.join(image_folder, '*' + config['img_format']))]
-    data_dir = '/f_ndata_/G'
-    # root = '/f_ndata_/G/dataset/RealEstate10K/sorted_1k'
-    # filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_1k_sorted_new.jsonl')
-    root = '/f_ndata_/G/dataset/MannequinChallenge/testimages_135'
-    filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_200_random.jsonl')
+    data_dir = '/scratch/f_ndata_/G'
+    root = '/scratch/f_ndata_/G/dataset/RealEstate10K/sorted_1k'
+    filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_1k_sorted_new.jsonl')
+    # root = '/f_ndata_/G/dataset/MannequinChallenge/testimages_135'
+    # filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_200_random.jsonl')
     with open(filename, 'rb') as f:
         datas = [e for e in json_lines.reader(f)]
 
-    target_dir = 'i2v/3Dphoto/eval_MC' #TODO
-    pred_pth = os.path.join(data_dir, target_dir, 'tgt_3rd') #TODO
+    target_dir = 'i2v/3Dphoto/' #TODO
+    pred_pth = os.path.join(data_dir, target_dir, 'tgt_5th') #TODO
     os.makedirs(pred_pth, exist_ok=True)
 
     lines = []
