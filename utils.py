@@ -890,8 +890,8 @@ def get_MiDaS_samples(image_folder, depth_folder, config, specific=None, aft_cer
 
 def get_MiDaS_samples_Real(image_folder, depth_folder, config, specific=None, aft_certain=None):
     # lines = [os.path.splitext(os.path.basename(xx))[0] for xx in glob.glob(os.path.join(image_folder, '*' + config['img_format']))]
-    data_dir = '/scratch/f_ndata_/G'
-    root = '/scratch/f_ndata_/G/dataset/RealEstate10K/sorted_1k'
+    data_dir = '/scratch/f_ndata/G'
+    root = '/scratch/f_ndata/G/dataset/RealEstate10K/sorted_1k'
     filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_1k_sorted_new.jsonl')
     # root = '/f_ndata_/G/dataset/MannequinChallenge/testimages_135'
     # filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_200_random.jsonl')
