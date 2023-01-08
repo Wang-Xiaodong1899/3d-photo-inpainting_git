@@ -44,6 +44,8 @@ print(f"running on device {device}")
 
 for idx in tqdm(range(len(sample_list))):
     if idx<940:
+        continue
+    else:
         try:
             depth = None
             sample = sample_list[idx]
