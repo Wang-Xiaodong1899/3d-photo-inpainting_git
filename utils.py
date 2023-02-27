@@ -947,24 +947,16 @@ def get_MiDaS_samples_Real(image_folder, depth_folder, config, specific=None, af
         tgt_pose = np.vstack((tgt_pose, np.zeros((1, 4)))).astype(np.float32)
         tgt_pose[3, 3] = 1
         tgts_poses = [[tgt_pose * 1]]
-
         ref_pose = np.vstack((src_pose, np.zeros((1, 4)))).astype(np.float32)
         ref_pose[3, 3] = 1
-        
         samples.append({})
         sdict = samples[-1]
-
         depth_folder = os.path.join(data_dir,'dataset/RealEstate10K/','sorted_depth')
         os.makedirs(depth_folder, exist_ok=True)
         image_folder = root
-
         sdict['ref_img_fi'] = os.path.join(image_folder, seq_dir + config['img_format'])
-
         seq_dir = seq_dir.replace(os.path.sep,'_')
         sdict['depth_fi'] = os.path.join(depth_folder, seq_dir + config['depth_format'])
-
-        
-
         # H, W = imageio.imread(sdict['ref_img_fi']).shape[:2]
         sdict['int_mtx'] = np.array([[ins[0], 0, ins[2]], [0, ins[1], ins[3]], [0, 0, 1]]).astype(np.float32)
         # if sdict['int_mtx'].max() > 1:
@@ -991,7 +983,7 @@ def get_MiDaS_samples_MC(image_folder, depth_folder, config, specific=None, aft_
         datas = [e for e in json_lines.reader(f)]
 
     target_dir = 'i2v/3Dphoto/eval_MC' #TODO
-    pred_pth = os.path.join(data_dir, target_dir, 'tgt_5th') #TODO
+    pred_pth = os.path.join(data_dir, target_dir, 'tgt_3rd_sample') #TODO
     os.makedirs(pred_pth, exist_ok=True)
 
     lines = []
@@ -1003,6 +995,8 @@ def get_MiDaS_samples_MC(image_folder, depth_folder, config, specific=None, aft_
         try:
             first_name = str(data['1st'][0])
             videoname = data['video_name']
+            if videoname != '8b739c73e6063271':
+                continue
             intrinsics = np.array(data['1st'][1:5]).astype(np.float32)
             src_pose = np.array(data['1st'][5:17]).astype(np.float32).reshape(3, 4)
             tgt_pose_5th = np.array(data['3rd'][1:13]).astype(np.float32).reshape(3, 4)
@@ -1034,7 +1028,7 @@ def get_MiDaS_samples_MC(image_folder, depth_folder, config, specific=None, aft_
         #TODO: add ins, src_pose, tgt_pose
         ins = inss[id]
         src_pose = src_poss[id]
-        tgt_pose = tgt_pose_2s[id] #TODO change 3rd or 5th
+        tgt_pose = tgt_pose_1s[id] #TODO change 3rd or 5th
 
         tgt_pose = np.vstack((tgt_pose, np.zeros((1, 4)))).astype(np.float32)
         tgt_pose[3, 3] = 1

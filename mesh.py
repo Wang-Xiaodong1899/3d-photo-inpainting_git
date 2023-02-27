@@ -1708,6 +1708,10 @@ def DL_inpaint_edge(mesh,
             if config.get('gray_image') is True:
                 rgb_output = rgb_output.mean(1, keepdim=True).repeat((1,3,1,1))
             rgb_output = rgb_output.cpu()
+        #TODO add the blue mask to indicate the mask regions, 0-1 range
+        #mask blue
+        rgb_output[:, :2] = 0
+        rgb_output[:,2] = 1
         resize_rgb_dict['output'] = rgb_output * resize_rgb_dict['mask'] + resize_rgb_dict['rgb']
         tensor_rgb_dict['output'] = resize_rgb_dict['output']
         if frac < 1:
