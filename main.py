@@ -92,7 +92,7 @@ for idx in tqdm(range(len(sample_list))):
                 print('*********')
                 depth_edge_model.load_state_dict(depth_edge_weight)
                 print('*********')
-                depth_edge_model = depth_edge_model.to(device)
+                # depth_edge_model = depth_edge_model.to(device)
                 print('*********')
                 depth_edge_model.eval()
                 print('*********')
