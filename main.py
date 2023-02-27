@@ -36,7 +36,7 @@ sample_list = get_MiDaS_samples_MC(config['src_folder'], config['depth_folder'],
 normal_canvas, all_canvas = None, None
 
 if isinstance(config["gpu_ids"], int) and (config["gpu_ids"] >= 0):
-    device = config["gpu_ids"]
+    device = 'cuda:0'#config["gpu_ids"]
 else:
     device = "cpu"
 
