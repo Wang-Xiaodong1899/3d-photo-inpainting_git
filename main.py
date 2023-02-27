@@ -90,6 +90,7 @@ for idx in tqdm(range(len(sample_list))):
                 depth_edge_model.load_state_dict(depth_edge_weight)
                 depth_edge_model = depth_edge_model.to(device)
                 depth_edge_model.eval()
+                print('*********')
 
                 print(f"Loading depth model at {time.time()}")
                 depth_feat_model = Inpaint_Depth_Net()
