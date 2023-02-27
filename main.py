@@ -85,10 +85,14 @@ for idx in tqdm(range(len(sample_list))):
                 print("Start Running 3D_Photo ...")
                 print(f"Loading edge model at {time.time()}")
                 depth_edge_model = Inpaint_Edge_Net(init_weights=True)
+                print('*********')
                 depth_edge_weight = torch.load(config['depth_edge_model_ckpt'],
                                             map_location=torch.device(device))
+                print('*********')
                 depth_edge_model.load_state_dict(depth_edge_weight)
+                print('*********')
                 depth_edge_model = depth_edge_model.to(device)
+                print('*********')
                 depth_edge_model.eval()
                 print('*********')
 
