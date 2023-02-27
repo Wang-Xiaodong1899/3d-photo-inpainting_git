@@ -974,10 +974,10 @@ def get_MiDaS_samples_Real(image_folder, depth_folder, config, specific=None, af
 
 def get_MiDaS_samples_MC(image_folder, depth_folder, config, specific=None, aft_certain=None):
     # lines = [os.path.splitext(os.path.basename(xx))[0] for xx in glob.glob(os.path.join(image_folder, '*' + config['img_format']))]
-    data_dir = '/scratch/f_ndata/G'
+    data_dir = '/f_ndata/G'
     # root = '/f_ndata_/G/dataset/RealEstate10K/sorted_1k'
     # filename = os.path.join(data_dir, 'dataset/RealEstate10K/meta_1k_sorted_new.jsonl')
-    root = '/scratch/f_ndata/G/dataset/MannequinChallenge/testimages_135'
+    root = '/f_ndata/G/dataset/MannequinChallenge/testimages_135'
     filename = os.path.join(data_dir, 'dataset/MannequinChallenge/meta_200_random.jsonl')
     with open(filename, 'rb') as f:
         datas = [e for e in json_lines.reader(f)]
