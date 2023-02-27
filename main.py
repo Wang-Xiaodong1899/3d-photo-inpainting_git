@@ -88,11 +88,11 @@ for idx in tqdm(range(len(sample_list))):
                 print('*********')
                 depth_edge_weight = torch.load(config['depth_edge_model_ckpt'],
                                             map_location='cpu')
-                #torch.device(device
+#                 torch.device(device
                 print('*********')
                 depth_edge_model.load_state_dict(depth_edge_weight)
                 print('*********')
-                # depth_edge_model = depth_edge_model.to(device)
+                depth_edge_model = depth_edge_model.to(device)
                 print('*********')
                 depth_edge_model.eval()
                 print('*********')
@@ -102,16 +102,16 @@ for idx in tqdm(range(len(sample_list))):
                 depth_feat_weight = torch.load(config['depth_feat_model_ckpt'],
                                             map_location='cpu')
                 depth_feat_model.load_state_dict(depth_feat_weight, strict=True)
-                # depth_feat_model = depth_feat_model.to(device)
+                depth_feat_model = depth_feat_model.to(device)
                 depth_feat_model.eval()
-                # depth_feat_model = depth_feat_model.to(device)
+                depth_feat_model = depth_feat_model.to(device)
                 print(f"Loading rgb model at {time.time()}")
                 rgb_model = Inpaint_Color_Net()
                 rgb_feat_weight = torch.load(config['rgb_feat_model_ckpt'],
                                             map_location='cpu')
                 rgb_model.load_state_dict(rgb_feat_weight)
                 rgb_model.eval()
-                # rgb_model = rgb_model.to(device)
+                rgb_model = rgb_model.to(device)
                 graph = None
 
 
