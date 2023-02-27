@@ -100,7 +100,7 @@ for idx in tqdm(range(len(sample_list))):
                 print(f"Loading depth model at {time.time()}")
                 depth_feat_model = Inpaint_Depth_Net()
                 depth_feat_weight = torch.load(config['depth_feat_model_ckpt'],
-                                            map_location='cpi')
+                                            map_location='cpu')
                 depth_feat_model.load_state_dict(depth_feat_weight, strict=True)
                 depth_feat_model = depth_feat_model.to(device)
                 depth_feat_model.eval()
